@@ -8,13 +8,13 @@ def count_words(text: str) -> int:
 
 def count_characters(text: str) -> int:
     """Return the number of characters in a text."""
-
-    return len(text)
+    text_stripped = text.strip(",").strip(".").strip("!").strip("?").strip(":").strip(";").strip("-").strip('"').strip("'")
+    return len(text_stripped)
 
 def count_sentences(text: str) -> int:
     """Return the number of sentences in a text."""
 
-    return len(text.split("."))
+    return len(text.split(".")) - 1
 
 
 def ari_function(words: int, characters: int, sentences: int) -> int:
@@ -23,10 +23,13 @@ def ari_function(words: int, characters: int, sentences: int) -> int:
     constant_1 = 4.71
     constant_2 = Fraction(1, 2)
     constant_3 = 21.43
+    print(f"fraction: {constant_2}")
 
-    return int(constant_1 * (characters / words) + constant_2 * (words / sentences) - constant_3)
+    ari = int(round(number=constant_1 * (characters / words) + constant_2 * (words / sentences) - constant_3, ndigits=0))
 
-def quantify_ari(ari_score: float) -> str:
+    return ari if ari <= 14 else 14
+
+def quantify_ari(ari_score: float) -> dict:
     """Return the ARI score of a text."""
 
     ari_scale = {
@@ -47,8 +50,3 @@ def quantify_ari(ari_score: float) -> str:
     }
 
     return ari_scale[ari_score]
-
-
-
-    
-

@@ -4,12 +4,15 @@ from fractions import Fraction
 def count_words(text: str) -> int:
     """Return the number of words in a text."""
 
-    return len(text.split())
+    return len(text.split(" "))
 
 def count_characters(text: str) -> int:
     """Return the number of characters in a text."""
-    text_stripped = text.strip(",").strip(".").strip("!").strip("?").strip(":").strip(";").strip("-").strip('"').strip("'")
+
+    text_stripped = text.replace(",", "").replace(".", "").replace("!", "").replace("?", "").replace(":", "").replace(";", "").replace("-", "").replace('"', "").replace("'", "").replace(" ", "")
+
     return len(text_stripped)
+
 
 def count_sentences(text: str) -> int:
     """Return the number of sentences in a text."""
@@ -21,13 +24,22 @@ def ari_function(words: int, characters: int, sentences: int) -> int:
     """Return the ari score of a text."""
 
     constant_1 = 4.71
-    constant_2 = Fraction(1, 2)
+    constant_2 = Fraction(1, 2)    
     constant_3 = 21.43
-    print(f"fraction: {constant_2}")
 
-    ari = int(round(number=constant_1 * (characters / words) + constant_2 * (words / sentences) - constant_3, ndigits=0))
+    ari_float = number=constant_1 * (characters / words) + constant_2 * (words / sentences) - constant_3
 
-    return ari if ari <= 14 else 14
+    print(f"ARI float: {ari_float}")
+
+    ari_rounded = round(number=ari_float, ndigits=0) if ari_float % 1 >= 0.5 else int(ari_float)
+
+    print(f"ARI rounded: {ari_rounded}")
+
+    ari = int(ari_rounded) if ari_rounded <= 14 else 14
+
+    print(f"ARI: {ari}")
+
+    return ari 
 
 def quantify_ari(ari_score: float) -> dict:
     """Return the ARI score of a text."""
@@ -50,3 +62,10 @@ def quantify_ari(ari_score: float) -> dict:
     }
 
     return ari_scale[ari_score]
+
+def main():
+
+    print(count_characters("Hello, world"))
+
+if __name__ == "__main__":
+    main()

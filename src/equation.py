@@ -29,15 +29,15 @@ def ari_function(words: int, characters: int, sentences: int) -> int:
 
     ari_float = number=constant_1 * (characters / words) + constant_2 * (words / sentences) - constant_3
 
-    print(f"ARI float: {ari_float}")
+    # print(f"ARI float: {ari_float}")
 
     ari_rounded = round(number=ari_float, ndigits=0) if ari_float % 1 >= 0.5 else int(ari_float)
 
-    print(f"ARI rounded: {ari_rounded}")
+    # print(f"ARI rounded: {ari_rounded}")
 
     ari = int(ari_rounded) if ari_rounded <= 14 else 14
 
-    print(f"ARI: {ari}")
+    # print(f"ARI: {ari}")
 
     return ari 
 

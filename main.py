@@ -1,6 +1,6 @@
 from src.equation import ari_function, count_characters, count_sentences, count_words, quantify_ari
 
-INDEX = 0
+INDEX = 1
 
 def main():
     """Main function."""
@@ -15,9 +15,9 @@ def main():
     characters = count_characters(text)
     sentences = count_sentences(text)
 
-    print(f"Words: {words}")
-    print(f"Sentences: {sentences}")
-    print(f"Characters: {characters}")
+    # print(f"Words: {words}")
+    # print(f"Sentences: {sentences}")
+    # print(f"Characters: {characters}")
 
     ari = ari_function(words, characters, sentences)
 

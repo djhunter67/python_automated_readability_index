@@ -20,7 +20,7 @@ defusedxml==0.7.1
 distro==1.7.0
 Django==4.0.6
 docutils==0.19
-fastapi==0.81.0
+fastapi==0.109.1
 future==0.18.2
 Glances==3.2.7
 h11==0.13.0

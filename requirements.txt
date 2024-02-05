@@ -70,7 +70,7 @@ rich-cli==1.8.0
 rich-rst==1.1.7
 sniffio==1.2.0
 sqlparse==0.4.2
-starlette==0.19.1
+starlette==0.36.2
 team==1.0
 textual==0.1.18
 toml==0.10.2
